@@ -18,6 +18,39 @@ VALUES ('Charmander', '2020-02-08', 0, FALSE, -11),
 			 ('Ditto', '2022-05-14', 4, TRUE, 22);
 
 
+/* Add data in Owners table */
+INSERT INTO owners (full_name, age)
+VALUES ('Sam Smith', 34),
+			 ('Jennifer Orwell', 19), 
+			 ('Bob', 45),
+			 ('Melody Pond', 77), 
+			 ('Dean Winchester', 14),
+			 ('Jodie Whittaker', 38);
+
+/* Add data to species table */
+INSERT INTO species (name)
+VALUES ('Pokemon'), 
+			 ('Digimon');
+
+/* Update the species_id in the animals table*/
+BEGIN;
+UPDATE animals
+SET species_id = digimon.id
+FROM (SELECT id FROM species WHERE species.name='Digimon') AS digimon
+WHERE animals.name LIKE '%mon';
+SELECT * from animals;
+COMMIT;
+
+BEGIN;
+UPDATE animals
+SET species_id = pokemon.id 
+FROM (SELECT id FROM species WHERE species.name='Pokemon') AS pokemon
+WHERE animals.name NOT LIKE '%mon';
+SELECT * from animals;
+COMMIT;
+
+/* Update the owner_id in the animals table */
+
 
 
 

@@ -70,3 +70,4 @@ SELECT species, AVG(escape_attempts) as avg_escape_attempts FROM animals WHERE d
 
 
 
+

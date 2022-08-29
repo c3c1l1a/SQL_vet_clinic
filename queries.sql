@@ -99,7 +99,7 @@ SELECT T.full_name, t.number_of_animals
 FROM (SELECT owners.full_name, animal_count.number_of_animals
 FROM owners
 LEFT JOIN (SELECT owners_id, COUNT(*) AS number_of_animals FROM animals GROUP BY owners_id) AS animal_count
-ON owners.id = animal_count.owners_id) as T
+ON owners.id = animal_count.owners_id) as T;
 
 
 
